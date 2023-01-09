@@ -1,4 +1,4 @@
-import { storageService } from "./async-storage.service.js"
+import { httpService } from "./http.service.js"
 import { utilService } from "./util.service.js"
 
 export const toyService = {
@@ -12,47 +12,29 @@ export const toyService = {
 }
 
 const STORAGE_KEY = 'toyDB'
+const BASE_URL = 'toy/'
 _createDemoToys()
 
 function query(filterBy) {
-    return storageService.query(STORAGE_KEY)
-        .then(toys => {
-            const nameRegex = new RegExp(filterBy.searchStr, 'i')
-            const labelRegex = new RegExp(filterBy.labels.join(''), 'i')
-
-            toys = toys.filter(toy => nameRegex.test(toy.name) && labelRegex.test(toy.labels.join('')))
-            if (filterBy.onlyInStock) toys = toys.filter(toy => toy.inStock)
-
-            if (filterBy.sortBy === 'name') {
-                toys = toys.sort((toy1, toy2) => toy1.name.localeCompare(toy2.name))
-            } else if (filterBy.sortBy === 'price') {
-                toys = toys.sort((toy1, toy2) => toy1.price - toy2.price)
-            }
-
-            return toys
-        })
+    const queryParams = `?onlyInStock=${filterBy.onlyInStock}&searchStr=${filterBy.searchStr}&sortBy=${filterBy.sortBy}&labels=${filterBy.labels}`
+    return httpService.get(BASE_URL + queryParams)
 }
 
 function getById(toyId) {
-    return storageService.query(STORAGE_KEY).then(toys => {
-        const toy = toys.find(toy => toy._id === toyId)
-        if (!toy) return Promise.reject('Cannot find toy')
-        return { ...toy, msgs: ['hello world', 'much javascript'] }
-    })
+    return httpService.get(BASE_URL + toyId)
 }
 
 function save(toy) {
     if (toy._id) {
-        return storageService.put(STORAGE_KEY, toy)
+        console.log(toy)
+        return httpService.put(BASE_URL, toy)
     } else {
-        toy.createdAt = Date.now()
-        toy.inStock = true
-        return storageService.post(STORAGE_KEY, toy)
+        return httpService.post(BASE_URL, toy)
     }
 }
 
 function remove(toyId) {
-    return storageService.remove(STORAGE_KEY, toyId)
+    return httpService.delete(BASE_URL + toyId)
 }
 
 function getEmptyToy() {
