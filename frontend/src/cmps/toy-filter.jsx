@@ -18,6 +18,11 @@ export function ToyFilter() {
                 dispatch({ type: SET_FILTER, filterBy: { ...prevFilterBy, [field]: checked } })
                 return { ...prevFilterBy, [field]: checked }
             })
+        } else if (field === 'labels') {
+            setFilterBy(prevFilterBy => {
+                dispatch({ type: SET_FILTER, filterBy: { ...prevFilterBy, [field]: [value] } })
+                return { ...prevFilterBy, [field]: [value] }
+            })
         } else {
             setFilterBy(prevFilterBy => {
                 dispatchRef.current({ ...prevFilterBy, [field]: value })
@@ -36,6 +41,14 @@ export function ToyFilter() {
 
             <label htmlFor="in-stock">Only in stock </label>
             <input checked={filterBy.onlyInStock} onChange={handleChange} id="in-stock" type="checkbox" name="onlyInStock" />
+
+            <label htmlFor="label-filter">By label </label>
+            <select onChange={handleChange} name="labels" id="label-filter">
+                <option value="">All</option>
+                {toyService.getLabels().map((label, idx) => (
+                    <option key={label + idx} value={label}>{label}</option>
+                ))}
+            </select>
         </section>
     )
 }

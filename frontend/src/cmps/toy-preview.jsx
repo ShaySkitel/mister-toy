@@ -11,6 +11,7 @@ export function ToyPreview({ toy }) {
             <article className="toy-preview">
                 <h2>{toy.name}</h2>
                 <h3>Price {toy.price}</h3>
+                <p>{toy.labels.join(', ')}</p>
                 <section className="toy-buttons">
                     <button onClick={() => navigate(`/toy/${toy._id}`)}>Details</button>
                     <button onClick={() => navigate(`/toy/edit/${toy._id}`)}>Edit</button>

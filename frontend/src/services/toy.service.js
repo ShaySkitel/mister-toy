@@ -17,8 +17,10 @@ _createDemoToys()
 function query(filterBy) {
     return storageService.query(STORAGE_KEY)
         .then(toys => {
-            const regex = new RegExp(filterBy.searchStr, 'i')
-            toys = toys.filter(toy => regex.test(toy.name))
+            const nameRegex = new RegExp(filterBy.searchStr, 'i')
+            const labelRegex = new RegExp(filterBy.labels.join(''), 'i')
+
+            toys = toys.filter(toy => nameRegex.test(toy.name) && labelRegex.test(toy.labels.join('')))
             if (filterBy.onlyInStock) toys = toys.filter(toy => toy.inStock)
             return toys
         })
@@ -57,7 +59,8 @@ function getEmptyToy() {
 function getDefaultFilter() {
     return {
         searchStr: '',
-        onlyInStock: false
+        onlyInStock: false,
+        labels: []
     }
 }
 
