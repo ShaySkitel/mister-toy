@@ -6,14 +6,22 @@ export const toyService = {
     getById,
     getEmptyToy,
     save,
-    remove
+    remove,
+    getDefaultFilter,
+    getLabels
 }
 
 const STORAGE_KEY = 'toyDB'
 _createDemoToys()
 
-function query() {
+function query(filterBy) {
     return storageService.query(STORAGE_KEY)
+        .then(toys => {
+            const regex = new RegExp(filterBy.searchStr, 'i')
+            toys = toys.filter(toy => regex.test(toy.name))
+            if (filterBy.onlyInStock) toys = toys.filter(toy => toy.inStock)
+            return toys
+        })
 }
 
 function getById(toyId) {
@@ -46,6 +54,17 @@ function getEmptyToy() {
     }
 }
 
+function getDefaultFilter() {
+    return {
+        searchStr: '',
+        onlyInStock: false
+    }
+}
+
+function getLabels() {
+    return ["On wheels", "Box game", "Art", "Baby", "Doll", "Puzzle", "Outdoor", "Battery Powered"]
+}
+
 // labels = ["On wheels", "Box game", "Art", "Baby", "Doll", "Puzzle", "Outdoor", "Battery Powered"]
 
 function _createDemoToys() {
@@ -58,7 +77,7 @@ function _createDemoToys() {
                 price: 123,
                 labels: ["Doll", "Battery Powered", "Baby"],
                 createdAt: 1631031801011,
-                inStock: true
+                inStock: false
             },
             {
                 _id: "t102",

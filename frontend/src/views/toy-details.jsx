@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { toyService } from "../services/toy.service.js"
+import { removeToy } from "../store/actions/toy.action.js"
 
 export function ToyDetails() {
 
@@ -12,6 +13,10 @@ export function ToyDetails() {
         toyService.getById(params.toyId).then(setToy)
     }, [])
 
+    function onRemoveToy() {
+        removeToy(toy._id).then(() => navigate('/toy'))
+    }
+
     return (
         toy && (
             <section className="toy-details">
@@ -20,7 +25,7 @@ export function ToyDetails() {
                 <h3>Price {toy.price}</h3>
                 <section className="toy-buttons">
                     <button onClick={() => navigate(`/toy/edit/${toy._id}`)}>Edit</button>
-                    <button>Remove</button>
+                    <button onClick={onRemoveToy}>Remove</button>
                 </section>
             </section>
         )
