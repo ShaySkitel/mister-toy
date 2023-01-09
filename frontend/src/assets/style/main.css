@@ -1,3 +1,10 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
+/* setup */
+@import "./setup/css-reset.css";
+@import "./setup/variables.css";
+
+/* base */
+@import "./base/base.css";
+@import "./base/layout.css";
+
+/* components */
+@import "./cmps/app-header.css";
