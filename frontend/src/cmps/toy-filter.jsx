@@ -13,6 +13,7 @@ export function ToyFilter() {
 
     function handleChange({ target }) {
         const { value, name: field, checked, type } = target
+        console.log(value, field)
         if (type === 'checkbox') {
             setFilterBy(prevFilterBy => {
                 dispatch({ type: SET_FILTER, filterBy: { ...prevFilterBy, [field]: checked } })
@@ -49,6 +50,16 @@ export function ToyFilter() {
                     <option key={label + idx} value={label}>{label}</option>
                 ))}
             </select>
+
+            <span>Sort by </span>
+            <input onChange={handleChange} value="name" type="radio" name="sortBy" id="name" />
+            <label htmlFor="name">Name</label>
+
+            <input onChange={handleChange} value="price" type="radio" name="sortBy" id="price" />
+            <label htmlFor="price">Price</label>
+
+            <input defaultChecked onChange={handleChange} value="date" type="radio" name="sortBy" id="date" />
+            <label htmlFor="date">Date</label>
         </section>
     )
 }

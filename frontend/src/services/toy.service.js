@@ -22,6 +22,13 @@ function query(filterBy) {
 
             toys = toys.filter(toy => nameRegex.test(toy.name) && labelRegex.test(toy.labels.join('')))
             if (filterBy.onlyInStock) toys = toys.filter(toy => toy.inStock)
+
+            if (filterBy.sortBy === 'name') {
+                toys = toys.sort((toy1, toy2) => toy1.name.localeCompare(toy2.name))
+            } else if (filterBy.sortBy === 'price') {
+                toys = toys.sort((toy1, toy2) => toy1.price - toy2.price)
+            }
+
             return toys
         })
 }
@@ -60,7 +67,8 @@ function getDefaultFilter() {
     return {
         searchStr: '',
         onlyInStock: false,
-        labels: []
+        labels: [],
+        sortBy: 'date'
     }
 }
 
