@@ -5,7 +5,8 @@ export const toyService = {
     query,
     getById,
     getEmptyToy,
-    save
+    save,
+    remove
 }
 
 const STORAGE_KEY = 'toyDB'
@@ -31,6 +32,10 @@ function save(toy) {
         toy.inStock = true
         return storageService.post(STORAGE_KEY, toy)
     }
+}
+
+function remove(toyId) {
+    return storageService.remove(STORAGE_KEY, toyId)
 }
 
 function getEmptyToy() {
