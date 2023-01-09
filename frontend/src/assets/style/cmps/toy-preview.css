@@ -1,0 +1,10 @@
+.toy-preview {
+    background-color: var(--secondary-bg-color);
+    color: var(--secondary-color);
+    padding: 1em;
+}
+
+.toy-preview h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}

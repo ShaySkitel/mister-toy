@@ -8,3 +8,5 @@
 
 /* components */
 @import "./cmps/app-header.css";
+@import "./cmps/toy-list.css";
+@import "./cmps/toy-preview.css";
