@@ -1,0 +1,35 @@
+[
+    {
+        "_id": "t101",
+        "name": "Talking Doll",
+        "price": 123,
+        "labels": [
+            "Doll",
+            "Battery Powered",
+            "Baby"
+        ],
+        "createdAt": 1631031801011,
+        "inStock": false
+    },
+    {
+        "_id": "t102",
+        "name": "Buzz Lightyear",
+        "price": 420,
+        "labels": [
+            "Doll",
+            "Battery Powered"
+        ],
+        "createdAt": 1631031801011,
+        "inStock": true
+    },
+    {
+        "_id": "t103",
+        "name": "Harry Potter puzzle",
+        "price": 37,
+        "labels": [
+            "Puzzle"
+        ],
+        "createdAt": 1631031801011,
+        "inStock": true
+    }
+]
