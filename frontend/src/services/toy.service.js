@@ -3,7 +3,9 @@ import { utilService } from "./util.service.js"
 
 export const toyService = {
     query,
-    getById
+    getById,
+    getEmptyToy,
+    save
 }
 
 const STORAGE_KEY = 'toyDB'
@@ -17,8 +19,26 @@ function getById(toyId) {
     return storageService.query(STORAGE_KEY).then(toys => {
         const toy = toys.find(toy => toy._id === toyId)
         if (!toy) return Promise.reject('Cannot find toy')
-        return toy
+        return { ...toy, msgs: ['hello world', 'much javascript'] }
     })
+}
+
+function save(toy) {
+    if (toy._id) {
+        return storageService.put(STORAGE_KEY, toy)
+    } else {
+        toy.createdAt = Date.now()
+        toy.inStock = true
+        return storageService.post(STORAGE_KEY, toy)
+    }
+}
+
+function getEmptyToy() {
+    return {
+        name: "",
+        price: "",
+        labels: []
+    }
 }
 
 // labels = ["On wheels", "Box game", "Art", "Baby", "Doll", "Puzzle", "Outdoor", "Battery Powered"]

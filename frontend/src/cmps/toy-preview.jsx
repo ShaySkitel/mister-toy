@@ -12,7 +12,7 @@ export function ToyPreview({ toy }) {
                 <h3>Price {toy.price}</h3>
                 <section className="toy-buttons">
                     <button onClick={() => navigate(`/toy/${toy._id}`)}>Details</button>
-                    <button>Edit</button>
+                    <button onClick={() => navigate(`/toy/edit/${toy._id}`)}>Edit</button>
                     <button>Remove</button>
                 </section>
             </article>
