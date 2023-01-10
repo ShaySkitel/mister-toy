@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { toyService } from "../services/toy.service.js"
+import { saveToy } from "../store/actions/toy.action.js"
 
 export function ToyEdit() {
 
@@ -15,7 +16,7 @@ export function ToyEdit() {
 
     function onSaveToy(ev) {
         ev.preventDefault()
-        toyService.save(toy)
+        saveToy(toy)
             .then(() => {
                 navigate('/toy')
             })

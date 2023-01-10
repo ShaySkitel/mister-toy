@@ -8,8 +8,22 @@ module.exports = {
     remove
 }
 
-function query() {
-    return Promise.resolve(toys)
+function query(filterBy) {
+    filterBy.onlyInStock = filterBy.onlyInStock === 'false' ? false : true
+    let toysCopy = [...toys]
+    const nameRegex = new RegExp(filterBy.searchStr, 'i')
+
+    toysCopy = toysCopy.filter(toy => nameRegex.test(toy.name) && toy.labels.join('').includes(filterBy.labels))
+
+    if (filterBy.onlyInStock) toysCopy = toysCopy.filter(toy => toy.inStock)
+
+    if (filterBy.sortBy === 'name') {
+        toysCopy = toysCopy.sort((toy1, toy2) => toy1.name.localeCompare(toy2.name))
+    } else if (filterBy.sortBy === 'price') {
+        toysCopy = toysCopy.sort((toy1, toy2) => toy1.price - toy2.price)
+    }
+
+    return Promise.resolve(toysCopy)
 }
 
 function get(toyId) {
@@ -27,6 +41,8 @@ function save(toy) {
         toyToUpdate.price = toy.price
     } else {
         toy._id = _makeId()
+        toy.createdAt = Date.now()
+        toy.inStock = true
         toys.unshift(toy)
     }
 
@@ -52,7 +68,7 @@ function _makeId(length = 8) {
 
 function _writeToFile() {
     return new Promise((res, rej) => {
-        const data = JSON.stringify(cars, null, 2)
+        const data = JSON.stringify(toys, null, 2)
         fs.writeFile('data/toy.json', data, (err) => {
             if (err) return rej(err)
             res()
