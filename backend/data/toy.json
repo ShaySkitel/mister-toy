@@ -1,29 +1,5 @@
 [
   {
-    "name": "123123",
-    "price": 555123,
-    "labels": [
-      "Art",
-      "Baby",
-      "Puzzle",
-      "Battery Powered"
-    ],
-    "_id": "NeCXAf7y",
-    "createdAt": 1673364025707,
-    "inStock": true
-  },
-  {
-    "name": "test toy",
-    "price": 420,
-    "labels": [
-      "Art",
-      "Outdoor"
-    ],
-    "_id": "5zFHIEBc",
-    "createdAt": 1673357212894,
-    "inStock": true
-  },
-  {
     "_id": "t101",
     "name": "Talking Doll",
     "price": 123,
@@ -49,6 +25,37 @@
   {
     "_id": "t103",
     "name": "Harry Potter puzzle",
+    "price": 37,
+    "labels": [
+      "Puzzle"
+    ],
+    "createdAt": 1631031801011,
+    "inStock": true
+  },
+  {
+    "_id": "t104",
+    "name": "Drone",
+    "price": 123,
+    "labels": [
+      "Battery Powered"
+    ],
+    "createdAt": 1631031801011,
+    "inStock": false
+  },
+  {
+    "_id": "t105",
+    "name": "Bumblebee",
+    "price": 420,
+    "labels": [
+      "Doll",
+      "Battery Powered"
+    ],
+    "createdAt": 1631031801011,
+    "inStock": false
+  },
+  {
+    "_id": "t106",
+    "name": "Italy puzzle",
     "price": 37,
     "labels": [
       "Puzzle"

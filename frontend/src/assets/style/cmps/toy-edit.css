@@ -1,0 +1,15 @@
+.toy-edit {
+    display: flex;
+    justify-content: center;
+}
+
+.toy-edit div.required {
+    color: red;
+}
+
+.toy-edit form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    gap: 0.5em;
+}

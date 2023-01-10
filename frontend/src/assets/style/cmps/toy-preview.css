@@ -4,6 +4,10 @@
     padding: 1em;
 }
 
+.toy-preview p {
+    margin-block-end: 1em;
+}
+
 .toy-preview h2 {
     margin: 0;
     font-size: 1.25rem;
