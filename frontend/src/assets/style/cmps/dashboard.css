@@ -2,6 +2,12 @@
     display: grid;
     grid-template-columns: 1fr;
     margin-block-end: 1em;
+    gap: 2em;
+}
+
+.dashboard-chart {
+    text-align: center;
+    font-size: 2rem;
 }
 
 @media screen and (min-width: 638px){

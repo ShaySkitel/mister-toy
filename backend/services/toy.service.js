@@ -37,16 +37,15 @@ function save(toy) {
     if (toy._id) {
         const toyToUpdate = toys.find(currToy => currToy._id === toy._id)
         if (!toyToUpdate) return Promise.reject('Toy not found')
-
         toyToUpdate.name = toy.name
         toyToUpdate.price = toy.price
+        toyToUpdate.labels = toy.labels
     } else {
         toy._id = _makeId()
         toy.createdAt = Date.now()
         toy.inStock = true
         toys.unshift(toy)
     }
-
     return _writeToFile().then(() => toy)
 }
 

@@ -17,6 +17,7 @@ export function ToyEdit() {
 
     function onSaveToy(ev) {
         ev.preventDefault()
+        console.log(toy)
         saveToy(toy)
             .then(() => {
                 navigate('/toy')
@@ -38,12 +39,14 @@ export function ToyEdit() {
 
     }
 
+    console.log(toy)
+
     return (
         <section className="toy-edit">
             <form onSubmit={onSaveToy}>
                 <input required onChange={handleChange} name="name" value={toy.name} type="text" placeholder="Toy name" />
                 <input required onChange={handleChange} name="price" value={toy.price} type="number" placeholder="Toy price" />
-                <Select defaultValue={toy.labels.map(label => ({ value: label.toLowerCase(), label }))} isSearchable={true} onChange={(choices) => handleChange({ choices })} name="labels" isMulti options={toyService.getLabels(true)} />
+                <Select value={toy.labels.map(label => ({ value: label.toLowerCase(), label }))} isSearchable={true} onChange={(choices) => handleChange({ choices })} name="labels" isMulti options={toyService.getLabels(true)} />
                 <button>{toyId ? 'Save' : 'Create toy'}</button>
             </form>
         </section>

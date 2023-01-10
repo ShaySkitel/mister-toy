@@ -100,10 +100,12 @@ export function Dashboard() {
 
     return (
         <section className="dashboard">
-            <section className='dashboard-prices'>
+            <section className='dashboard-chart'>
+                <h2>Highest price per category</h2>
                 {priceData.labels.length && <Doughnut data={priceData} />}
             </section>
-            <section className='dashboard-inventory'>
+            <section className='dashboard-chart'>
+                <h2>Toys in stock per category</h2>
                 {inventoryData.labels.length && <Doughnut data={inventoryData} />}
             </section>
         </section>

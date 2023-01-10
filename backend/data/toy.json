@@ -1,5 +1,18 @@
 [
   {
+    "name": "123123",
+    "price": 555123,
+    "labels": [
+      "Art",
+      "Baby",
+      "Puzzle",
+      "Battery Powered"
+    ],
+    "_id": "NeCXAf7y",
+    "createdAt": 1673364025707,
+    "inStock": true
+  },
+  {
     "name": "test toy",
     "price": 420,
     "labels": [
