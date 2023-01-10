@@ -15,7 +15,7 @@ export function ToyIndex() {
 
     return (
         <section className="toy-index">
-            <Link to='/toy/edit'>Add toy</Link>
+            <Link className="btn add-toy-btn" to='/toy/edit'>Add toy</Link>
             <ToyFilter />
             <ToyList />
         </section>

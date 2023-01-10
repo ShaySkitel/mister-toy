@@ -1,0 +1,8 @@
+.toy-index {
+    margin-block-end: 1em;
+}
+
+.toy-index .add-toy-btn {
+    display: inline-block;
+    margin-block-end: 1em;
+}

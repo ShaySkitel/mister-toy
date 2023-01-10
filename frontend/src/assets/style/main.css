@@ -4,6 +4,7 @@
 
 /* base */
 @import "./base/base.css";
+@import "./base/buttons.css";
 @import "./base/layout.css";
 
 /* components */
@@ -11,3 +12,4 @@
 @import "./cmps/toy-list.css";
 @import "./cmps/toy-preview.css";
 @import "./cmps/toy-filter.css";
+@import "./cmps/toy-index.css";
