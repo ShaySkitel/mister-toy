@@ -1,0 +1,17 @@
+.toy-filter {
+    margin-block-end: 1em;
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+    padding: 1em;
+    border-radius: 2em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.toy-filter div {
+    display: flex;
+    align-items: center;
+    gap: 0.35em;
+}

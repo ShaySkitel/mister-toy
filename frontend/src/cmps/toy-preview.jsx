@@ -10,7 +10,8 @@ export function ToyPreview({ toy }) {
         <li>
             <article className="toy-preview">
                 <h2>{toy.name}</h2>
-                <h3>Price {toy.price}</h3>
+                <img src={`https://robohash.org/${toy.name}?set=set3`} alt={toy.name} />
+                <h3>Price ${toy.price}</h3>
                 <p>{toy.labels.join(', ')}</p>
                 <section className="toy-buttons">
                     <button onClick={() => navigate(`/toy/${toy._id}`)}>Details</button>

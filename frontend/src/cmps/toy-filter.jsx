@@ -40,26 +40,33 @@ export function ToyFilter() {
         <section className="toy-filter">
             <input value={filterBy.searchStr} name="searchStr" onChange={handleChange} type="text" placeholder="Search" aria-label="Search toy" />
 
-            <label htmlFor="in-stock">Only in stock </label>
-            <input checked={filterBy.onlyInStock} onChange={handleChange} id="in-stock" type="checkbox" name="onlyInStock" />
+            <div>
+                <label htmlFor="in-stock">In stock </label>
+                <input checked={filterBy.onlyInStock} onChange={handleChange} id="in-stock" type="checkbox" name="onlyInStock" />
+            </div>
 
-            <label htmlFor="label-filter">By label </label>
-            <select onChange={handleChange} name="labels" id="label-filter">
-                <option value="">All</option>
-                {toyService.getLabels().map((label, idx) => (
-                    <option key={label + idx} value={label}>{label}</option>
-                ))}
-            </select>
+            <div>
+                <label htmlFor="label-filter">By label </label>
+                <select onChange={handleChange} name="labels" id="label-filter">
+                    <option value="">All</option>
+                    {toyService.getLabels().map((label, idx) => (
+                        <option key={label + idx} value={label}>{label}</option>
+                    ))}
+                </select>
+            </div>
 
-            <span>Sort by </span>
-            <input onChange={handleChange} value="name" type="radio" name="sortBy" id="name" />
-            <label htmlFor="name">Name</label>
+            <div>
+                <span>Sort by </span>
+                <input onChange={handleChange} value="name" type="radio" name="sortBy" id="name" />
+                <label htmlFor="name">Name</label>
 
-            <input onChange={handleChange} value="price" type="radio" name="sortBy" id="price" />
-            <label htmlFor="price">Price</label>
+                <input onChange={handleChange} value="price" type="radio" name="sortBy" id="price" />
+                <label htmlFor="price">Price</label>
 
-            <input defaultChecked onChange={handleChange} value="date" type="radio" name="sortBy" id="date" />
-            <label htmlFor="date">Date</label>
+                <input defaultChecked onChange={handleChange} value="date" type="radio" name="sortBy" id="date" />
+                <label htmlFor="date">Date</label>
+            </div>
+
         </section>
     )
 }

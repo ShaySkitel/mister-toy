@@ -22,7 +22,9 @@ export function ToyDetails() {
             <section className="toy-details">
                 <h2>{toy.name}</h2>
                 <p>{toy.labels.join(', ')}</p>
-                <h3>Price {toy.price}</h3>
+                <img src={`https://robohash.org/${toy.name}?set=set3`} alt={toy.name} />
+                <h3>Price ${toy.price}</h3>
+                <h3>Created at {new Date(toy.createdAt).toDateString()}</h3>
                 <section className="toy-buttons">
                     <button onClick={() => navigate(`/toy/edit/${toy._id}`)}>Edit</button>
                     <button onClick={onRemoveToy}>Remove</button>
