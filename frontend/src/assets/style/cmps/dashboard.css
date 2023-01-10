@@ -1,0 +1,11 @@
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-block-end: 1em;
+}
+
+@media screen and (min-width: 638px){
+    .dashboard {
+        grid-template-columns: 1fr 1fr;
+    }
+}

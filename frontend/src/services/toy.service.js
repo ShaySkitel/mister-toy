@@ -8,7 +8,8 @@ export const toyService = {
     save,
     remove,
     getDefaultFilter,
-    getLabels
+    getLabels,
+    getStock
 }
 
 const STORAGE_KEY = 'toyDB'
@@ -68,6 +69,10 @@ function getLabels(asObject = false) {
         ]
     }
     return ["On wheels", "Box game", "Art", "Baby", "Doll", "Puzzle", "Outdoor", "Battery Powered"]
+}
+
+function getStock() {
+    return httpService.get(BASE_URL + 'stock')
 }
 
 // labels = ["On wheels", "Box game", "Art", "Baby", "Doll", "Puzzle", "Outdoor", "Battery Powered"]

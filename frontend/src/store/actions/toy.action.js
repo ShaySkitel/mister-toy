@@ -6,6 +6,7 @@ export function loadToys(filterBy) {
     return toyService.query(filterBy)
         .then(toys => {
             store.dispatch({ type: SET_TOYS, toys })
+            return toys
         })
 }
 
