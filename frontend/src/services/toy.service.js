@@ -54,7 +54,19 @@ function getDefaultFilter() {
     }
 }
 
-function getLabels() {
+function getLabels(asObject = false) {
+    if (asObject) {
+        return [
+            { value: 'on wheels', label: 'On wheels' },
+            { value: 'box game', label: 'Box game' },
+            { value: 'art', label: 'Art' },
+            { value: 'baby', label: 'Baby' },
+            { value: 'doll', label: 'Doll' },
+            { value: 'puzzle', label: 'Puzzle' },
+            { value: 'outdoor', label: 'Outdoor' },
+            { value: 'battery powered', label: 'Battery Powered' }
+        ]
+    }
     return ["On wheels", "Box game", "Art", "Baby", "Doll", "Puzzle", "Outdoor", "Battery Powered"]
 }
 
