@@ -5,7 +5,8 @@ module.exports = {
     query,
     get,
     save,
-    remove
+    remove,
+    getStockByLabels
 }
 
 function query(filterBy) {
@@ -55,6 +56,21 @@ function remove(toyId) {
     toys.splice(toyIdx, 1)
     return _writeToFile()
 
+}
+
+function getStockByLabels() {
+    const toyStockMap = toys.reduce((acc, toy) => {
+        if (!toy.inStock) return acc
+
+        toy.labels.forEach(label => {
+            if (!acc[label]) acc[label] = 0
+            acc[label]++
+        })
+
+        return acc
+    }, {})
+
+    return Promise.resolve(toyStockMap)
 }
 
 function _makeId(length = 8) {

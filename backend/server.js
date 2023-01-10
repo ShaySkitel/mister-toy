@@ -26,6 +26,17 @@ app.get('/api/toy', (req, res) => {
         })
 })
 
+app.get('/api/toy/stock', (req, res) => {
+    toyService.getStockByLabels()
+        .then((toys) => {
+            res.send(toys)
+        })
+        .catch(err => {
+            console.log('Error:', err)
+            res.status(400).send('Cannot get toys')
+        })
+})
+
 // Read - GetById
 app.get('/api/toy/:toyId', (req, res) => {
     const { toyId } = req.params
