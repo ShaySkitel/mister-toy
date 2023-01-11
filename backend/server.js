@@ -16,7 +16,6 @@ if (process.env.NODE_ENV === 'production') {
     app.use(cors(corsOptions))
 }
 
-app.use(cors(corsOptions))
 app.use(express.json())
 
 // Read - get all
