@@ -1,5 +1,24 @@
-.main-layout>*:not(.full) {
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
+.main-layout {
+    display: grid;
+    grid-template-columns: $layoutPadding 1fr $layoutPadding;
+
+    .full {
+        grid-column: 1 / -1;
+    }
+
+    >*:not(.full) {
+        grid-column: 2;
+    }
+
+    @include for-narrow-layout {
+        @include gtcMainLayout($break-narrow)
+    }
+    
+    @include for-normal-layout {
+        @include gtcMainLayout($break-normal)
+    }
+    
+    @include for-wide-layout {
+        @include gtcMainLayout($break-wide)
+    }
 }

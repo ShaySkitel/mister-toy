@@ -4,17 +4,15 @@
     margin-block-end: 1em;
     gap: 2em;
     justify-items: center;
-}
 
-.dashboard-chart {
-    text-align: center;
-    font-size: 2rem;
-    width: 100%;
-    max-width: 700px;
-}
+    .dashboard-chart {
+        text-align: center;
+        font-size: 2rem;
+        width: 100%;
+        max-width: 700px;
+    }
 
-@media screen and (min-width: 638px){
-    .dashboard {
+    @include for-narrow-layout {
         grid-template-columns: 1fr 1fr;
     }
 }

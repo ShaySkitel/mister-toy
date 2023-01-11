@@ -1,0 +1,32 @@
+/* Media queries Breakpoint mixins */
+
+@mixin for-mobile-layout {
+    @media (max-width: $padded-break-narrow) {
+        @content;
+    }
+}
+
+@mixin for-narrow-layout {
+    @media (min-width: $padded-break-narrow) {
+        @content;
+    }
+}
+
+@mixin for-normal-layout {
+    @media (min-width: $padded-break-normal) {
+        @content;
+    }
+}
+
+@mixin for-wide-layout {
+    @media (min-width: $padded-break-wide) {
+        @content;
+    }
+}
+
+@mixin gtcMainLayout($width) {
+    grid-template-columns: 
+          minmax($layoutPadding, 1fr) 
+          minmax(auto, $width) 
+          minmax($layoutPadding, 1fr);
+  }

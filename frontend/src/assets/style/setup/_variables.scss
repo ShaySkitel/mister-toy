@@ -6,3 +6,15 @@
     --secondary-color: #eee;
     --highlight-color: #eb5e28;
 }
+
+// Layout
+$layoutPadding: 1rem;
+
+// breakpoints
+$break-narrow: 640px;
+$break-normal: 960px;
+$break-wide: 1400px;
+
+$padded-break-narrow: calc($break-narrow + $layoutPadding * 2);
+$padded-break-normal: calc($break-normal + $layoutPadding * 2);
+$padded-break-wide: calc($break-wide + $layoutPadding * 2);

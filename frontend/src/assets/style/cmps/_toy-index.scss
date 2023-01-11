@@ -1,13 +1,14 @@
 .toy-index {
     margin-block-end: 1em;
+
+    .add-toy-btn {
+        display: inline-block;
+        margin-block-end: 1em;
+    }
+
+    .toy-buttons {
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
-.toy-index .add-toy-btn {
-    display: inline-block;
-    margin-block-end: 1em;
-}
-
-.toy-buttons {
-    display: flex;
-    justify-content: space-between;
-}

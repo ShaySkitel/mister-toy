@@ -8,10 +8,10 @@
     align-items: center;
     gap: 1em;
     flex-wrap: wrap;
-}
 
-.toy-filter div {
-    display: flex;
-    align-items: center;
-    gap: 0.35em;
+    div {
+        display: flex;
+        align-items: center;
+        gap: 0.35em;
+    }
 }

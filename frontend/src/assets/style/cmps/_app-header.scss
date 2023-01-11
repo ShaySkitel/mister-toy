@@ -3,37 +3,37 @@
     color: var(--secondary-color);
     padding: 1em 0;
     margin-block-end: 1em;
-}
 
-.main-header a {
-    color: var(--secondary-color);
-    text-decoration: none;
-    font-size: 1.25rem;
-}
+    a {
+        color: var(--secondary-color);
+        text-decoration: none;
+        font-size: 1.25rem;
 
-.main-header a:hover {
-    color: var(--highlight-color);
-}
+        &:hover, &.active {
+            color: var(--highlight-color);
+        }
+    }
 
-.main-header a.active {
-    color: var(--highlight-color);
-}
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-.main-header .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    nav {
+        a {
+            &:not(:last-of-type) {
+                margin-inline-end: 1.5em;
+            }
+        }
+    }
 
-.main-header nav a:not(:last-of-type){
-    margin-inline-end: 1.5em;
-}
+    .brand {
+        font-size: 2rem;
 
-.brand {
-    font-size: 2rem;
-}
-
-.brand h1 {
-    margin: 0;
-    font-weight: bold;
+        h1 {
+            margin: 0;
+            font-weight: bold;
+        }
+    }
 }

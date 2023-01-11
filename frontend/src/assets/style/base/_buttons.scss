@@ -7,8 +7,8 @@
     border-radius: 1em;
     transition: color 0.15s ease-in-out;
     text-decoration: none;
-}
 
-.btn:hover, .btn:active {
-    color: var(--highlight-color);
+    &:hover, &:active {
+        color: var(--highlight-color);
+    }
 }
