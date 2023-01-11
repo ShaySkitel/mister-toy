@@ -3,6 +3,11 @@
     color: var(--secondary-color);
     padding: 1em 0;
     margin-block-end: 1em;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
 
     a {
         color: var(--secondary-color);
@@ -21,10 +26,43 @@
     }
 
     nav {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform: translateY(100%);
+        background-color: var(--main-bg-color);
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transition: max-height 0.25s ease-in-out;
+
+        body.menu-open & {
+            transform: translateY(100%);
+            max-height: 100vh;
+            pointer-events: all;
+
+            @include for-narrow-layout {
+                transform: none;
+                max-height: initial;
+            }
+        }
+
         a {
+            padding: 1em 0;
             &:not(:last-of-type) {
                 margin-inline-end: 1.5em;
             }
+        }
+
+        @include for-narrow-layout {
+            position: static;
+            transform: none;
+            background: none;
+            width: initial;
+            max-height: initial;
+            pointer-events: all;
+            display: block;
         }
     }
 
@@ -34,6 +72,22 @@
         h1 {
             margin: 0;
             font-weight: bold;
+        }
+    }
+
+    div.hamburger {
+        cursor: pointer;
+        font-size: 2rem;
+        color: var(--secondary-color);
+        transition: color 0.15s ease-in-out;
+        user-select: none;
+
+        &:hover {
+            color: var(--highlight-color);
+        }
+
+        @include for-narrow-layout {
+            display: none;
         }
     }
 }
