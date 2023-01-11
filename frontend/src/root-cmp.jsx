@@ -29,6 +29,7 @@ function App() {
           </Routes>
         </main>
       </Router>
+      <div onClick={() => document.body.classList.remove('menu-open')} className="overlay"></div>
     </Provider>
   )
 }
