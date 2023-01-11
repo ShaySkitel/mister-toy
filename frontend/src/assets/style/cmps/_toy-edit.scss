@@ -11,7 +11,11 @@
     form {
         display: flex;
         flex-direction: column;
-        width: 500px;
+        width: 100%;
         gap: 0.5em;
+
+        @include for-narrow-layout {
+            width: 500px;
+        }
     }
 }
