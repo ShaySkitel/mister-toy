@@ -1,15 +1,23 @@
 [
   {
-    "_id": "t101",
-    "name": "Talking Doll",
-    "price": 123,
+    "name": "asdasd",
+    "price": 555,
     "labels": [
-      "Doll",
-      "Battery Powered",
-      "Baby"
+      "Box game"
     ],
-    "createdAt": 1631031801011,
-    "inStock": false
+    "_id": "jNQlxXrT",
+    "createdAt": 1673375571876,
+    "inStock": true
+  },
+  {
+    "name": "asd",
+    "price": 15,
+    "labels": [
+      "Box game"
+    ],
+    "_id": "MjrjyqmW",
+    "createdAt": 1673375566288,
+    "inStock": true
   },
   {
     "_id": "t102",
