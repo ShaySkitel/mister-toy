@@ -5,9 +5,14 @@ const PORT = process.env.PORT || 3030
 
 const toyService = require('./services/toy.service.js')
 
-const corsOptions = {
-    origin: ['http://127.0.0.1:8080', 'http://localhost:8080', 'http://127.0.0.1:3000', 'http://localhost:3000'],
-    credentials: true
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.resolve(__dirname, 'public')))
+} else {
+    const corsOptions = {
+        origin: ['http://127.0.0.1:3000', 'http://localhost:3000'],
+        credentials: true
+    }
+    app.use(cors(corsOptions))
 }
 
 app.use(cors(corsOptions))
@@ -87,6 +92,10 @@ app.delete('/api/toy/:toyId', (req, res) => {
             console.log('Error:', err)
             res.status(400).send('Cannot delete toy')
         })
+})
+
+app.get('/**', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 })
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`))
