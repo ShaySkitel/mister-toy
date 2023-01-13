@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { removeToy } from "../store/actions/toy.action.js"
 
@@ -5,6 +6,7 @@ import { removeToy } from "../store/actions/toy.action.js"
 export function ToyPreview({ toy }) {
 
     const navigate = useNavigate()
+    const user = useSelector(storeState => storeState.userModule.user)
 
     return (
         <li>
@@ -16,8 +18,8 @@ export function ToyPreview({ toy }) {
                 <p>{toy.inStock ? 'In stock' : 'Out of stock'}</p>
                 <section className="toy-buttons">
                     <button className="btn" onClick={() => navigate(`/toy/${toy._id}`)}>Details</button>
-                    <button className="btn" onClick={() => navigate(`/toy/edit/${toy._id}`)}>Edit</button>
-                    <button className="btn" onClick={() => removeToy(toy._id)}>Remove</button>
+                    {user.isAdmin && <button className="btn" onClick={() => navigate(`/toy/edit/${toy._id}`)}>Edit</button>}
+                    {user.isAdmin && <button className="btn" onClick={() => removeToy(toy._id)}>Remove</button>}
                 </section>
             </article>
         </li>

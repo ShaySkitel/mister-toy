@@ -8,6 +8,7 @@ import { loadToys } from "../store/actions/toy.action";
 export function ToyIndex() {
 
     const filterBy = useSelector(storeState => storeState.toyModule.filterBy)
+    const user = useSelector(storeState => storeState.userModule.user)
 
     useEffect(() => {
         loadToys(filterBy)
@@ -15,7 +16,7 @@ export function ToyIndex() {
 
     return (
         <section className="toy-index">
-            <Link className="btn add-toy-btn" to='/toy/edit'>Add toy</Link>
+            {user.isAdmin && <Link className="btn add-toy-btn" to='/toy/edit'>Add toy</Link>}
             <ToyFilter />
             <ToyList />
         </section>

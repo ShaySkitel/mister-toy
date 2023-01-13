@@ -53,6 +53,11 @@
         border: 1px solid var(--secondary-bg-color);
     }
 
+    .toy-msgs {
+        display: flex;
+        flex-direction: column;
+    }
+
     @include for-normal-layout {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1fr;
@@ -63,6 +68,10 @@
 
         .toy-img {
             grid-column: 1;
+        }
+
+        .toy-msgs {
+            grid-column: 2;
         }
     }
     

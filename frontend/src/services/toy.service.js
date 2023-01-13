@@ -9,7 +9,8 @@ export const toyService = {
     remove,
     getDefaultFilter,
     getLabels,
-    getStock
+    getStock,
+    addMsg
 }
 
 const STORAGE_KEY = 'toyDB'
@@ -28,7 +29,7 @@ function getById(toyId) {
 function save(toy) {
     if (toy._id) {
         console.log(toy)
-        return httpService.put(BASE_URL, toy)
+        return httpService.put(BASE_URL + toy._id, toy)
     } else {
         return httpService.post(BASE_URL, toy)
     }
@@ -44,6 +45,14 @@ function getEmptyToy() {
         price: "",
         labels: []
     }
+}
+
+function addMsg(toy, msg){
+    return httpService.post(BASE_URL + toy._id + '/msg', msg)
+        .then(msg => {
+            console.log(msg)
+            return msg
+        })
 }
 
 function getDefaultFilter() {

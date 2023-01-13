@@ -11,6 +11,7 @@ import { ToyEdit } from './views/toy-edit'
 import { AppHeader } from './cmps/app-header'
 import { Dashboard } from './views/dashboard'
 import { AboutPage } from './views/about-page'
+import { LoginSignup } from './views/login-signup'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route element={<HomePage />} path='/' />
             <Route element={<AboutPage />} path='/about' />
             <Route element={<Dashboard />} path='/dashboard' />
+            <Route element={<LoginSignup />} path='/login' />
             <Route element={<ToyIndex />} path='/toy' />
             <Route element={<ToyDetails />} path='/toy/:toyId' />
             <Route element={<ToyEdit />} path='/toy/edit' />

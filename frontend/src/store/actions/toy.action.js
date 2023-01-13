@@ -24,3 +24,7 @@ export function saveToy(toy) {
             store.dispatch({ type, toy })
         })
 }
+
+export function addMsg(toy, msg) {
+    return toyService.addMsg(toy, msg)
+}

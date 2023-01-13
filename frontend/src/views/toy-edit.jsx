@@ -3,14 +3,19 @@ import Select from 'react-select'
 import { useNavigate, useParams } from "react-router-dom"
 import { toyService } from "../services/toy.service.js"
 import { saveToy } from "../store/actions/toy.action.js"
+import { useSelector } from "react-redux"
 
 export function ToyEdit() {
 
     const { toyId } = useParams()
     const navigate = useNavigate()
     const [toy, setToy] = useState(toyService.getEmptyToy())
+    const user = useSelector(storeState => storeState.userModule.user)
 
     useEffect(() => {
+        if(!user.isAdmin) {
+            return navigate('/toy')
+        }
         if (!toyId) return
         toyService.getById(toyId).then(setToy)
     }, [])
